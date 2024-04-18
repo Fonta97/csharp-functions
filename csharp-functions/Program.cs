@@ -100,7 +100,7 @@ namespace csharp_functions
             StampaArray(arrayDuro);
 
             //Stampa dell'array elevato al quadrato con la verifica di non aver modificato il primo
-            int [] numeriAlQuadratoDuri = ElevaArrayAlQuadrato(arrayDuro);
+            int[] numeriAlQuadratoDuri = ElevaArrayAlQuadrato(arrayDuro);
 
             Console.Write("Ecco i tuoi numeri durissimi elevati: ");
             StampaArray(numeriAlQuadratoDuri);
@@ -113,11 +113,54 @@ namespace csharp_functions
             Console.WriteLine($"Eccoti la tua somma DURISSIMA: {sommaDurissima}");
 
             //somma dei numeri durissimi elevati al quadrato
-            /*int[] arraySommaQuadrataDurissima = StampaArray(sommaElementiArray(numeriAlQuadratoDuri));
-            Console.Write("Ecco la fine di questa roba DURISSIMA: ");
-                StampaArray(arraySommaQuadrataDurissima);*/
             int sommaQuadrataDurissima = sommaElementiArray(numeriAlQuadratoDuri);
-            Console.Write($"Ecco la fine di questa roba DURISSIMA in cui sommo i numeri all'interno dell'array già elevati al quadrato: {sommaQuadrataDurissima} ");
+            Console.WriteLine($"Ecco la fine di questa roba DURISSIMA in cui sommo i numeri all'interno dell'array già elevati al quadrato:{sommaQuadrataDurissima} ");
+
+            //**BONUS**
+
+            // Funzione per chiedere all'utente di inserire i valori dell'array
+            int[] ChiediValoriArray(int lunghezza)
+            {
+                int[] array = new int[lunghezza];
+                for (int i = 0; i < lunghezza; i++)
+                {
+                    Console.Write($"Inserisci il valore {i + 1} dell'array: ");
+                    array[i] = int.Parse(Console.ReadLine());
+                }
+                return array;
+            }
+
+            // Chiedi all'utente la lunghezza dell'array
+            Console.Write("Inserisci la lunghezza dell'array: ");
+            int lunghezzaArray = int.Parse(Console.ReadLine());
+
+            // Ottieni i valori dall'utente
+            int[] arraySuRichiesta = ChiediValoriArray(lunghezzaArray);
+
+            // Stampa l'array PERSONALIZZATO
+            StampaArray(arraySuRichiesta);
+
+
+            //tutte le funzioni di prima ma con i numeri inseriti dall'utente
+
+            //Stampa dell'array elevato al quadrato con la verifica di non aver modificato il primo PERSONALIZZATO
+            int[] numeriAlQuadratoSuRichiesta = ElevaArrayAlQuadrato(arraySuRichiesta);
+
+            Console.Write("Ecco i tuoi numeri durissimi elevati: ");
+            StampaArray(numeriAlQuadratoSuRichiesta);
+
+            Console.Write("Ecco i tuoi numeri durissimi non modificati dell'array originale: ");
+            StampaArray(arraySuRichiesta);
+
+            //somma dei numeri durissimi PERSONALIZZATO
+            int sommaSuRichiesta = sommaElementiArray(arraySuRichiesta);
+            Console.WriteLine($"Eccoti la tua somma DURISSIMA: {sommaSuRichiesta}");
+
+            //somma dei numeri durissimi elevati al quadrato PERSONALIZZATO
+            int sommaQuadrataSuRichiesta = sommaElementiArray(numeriAlQuadratoSuRichiesta);
+            Console.WriteLine($"Ecco la fine di questa roba DURISSIMA in cui sommo i numeri all'interno dell'array già elevati al quadrato:{sommaQuadrataSuRichiesta} ");
+
+
         }
     }
 }
